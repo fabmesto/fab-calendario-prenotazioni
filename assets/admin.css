@@ -1,0 +1,11 @@
+.adminlte3-content .form-group label {
+    position: relative;
+}
+
+.adminlte3-content .form-group label.sr-only {
+    height: auto;
+}
+
+.mt-2 .nav li {
+    padding: 0;
+}

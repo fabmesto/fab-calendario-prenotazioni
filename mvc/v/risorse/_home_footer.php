@@ -1,0 +1,1 @@
+<?php echo $this->{$this->default_model_name}->pagination_html ?>
