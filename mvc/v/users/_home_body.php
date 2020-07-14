@@ -9,6 +9,7 @@
                 <th>Ruolo</th>
                 <th>Registrato</th>
                 <th>Stato</th>
+                <th>Bloccato</th>
             </tr>
         </thead>
         <tbody>
@@ -17,8 +18,13 @@
                     ?>
                 <tr>
                     <td>
-                        <a class="btn btn-primary btn-sm" href="<?php echo get_edit_user_link($row->ID) ?>">
-                            <i class="fa fa-pencil"></i>
+                        <?php if ($this->can_delete()) : ?>
+                            <a class="btn btn-primary btn-sm" href="<?php echo get_edit_user_link($row->ID) ?>">
+                                <i class="fas fa-user-edit"></i>
+                            </a>
+                        <?php endif; ?>
+                        <a class="btn btn-primary btn-sm" href="<?php echo $this->url_edit($row->ID); ?>">
+                            <i class="fas fa-edit"></i>
                         </a>
                     </td>
                     <td><?php echo $row->ID ?></td>
@@ -27,6 +33,7 @@
                     <td><?php echo $row->roles[0] ?></td>
                     <td><?php echo \fab\functions::nice_date($row->user_registered) ?></td>
                     <td><?php echo $row->user_status ?></td>
+                    <td class="<?php echo ($row->blocca_prenotazioni === '1' ? 'bg-red' : '') ?>"><?php echo ($row->blocca_prenotazioni === '1' ? 'Bloccato' : 'No') ?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>

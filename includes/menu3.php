@@ -17,11 +17,11 @@
             <a href="<?php echo $this->url('prenotazioni') ?>" class="nav-link <?php echo $this->link_is_active('prenotazioni') ?>">
               <i class="far fa-calendar"></i> Prenotazioni</a>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo $this->url('users') ?>" class="nav-link <?php echo $this->link_is_active('users') ?>">
+              <i class="fa fa-address-card" aria-hidden="true"></i> Utenti</a>
+          </li>
           <?php if (current_user_can('edit_users') == 1) : ?>
-            <li class="nav-item">
-              <a href="<?php echo $this->url('users') ?>" class="nav-link <?php echo $this->link_is_active('users') ?>">
-                <i class="fa fa-address-card" aria-hidden="true"></i> Utenti</a>
-            </li>
             <li class="nav-item">
               <a href="<?php echo $this->url('risorse') ?>" class="nav-link <?php echo $this->link_is_active('risorse') ?>">
                 <i class="fa fa-th-list" aria-hidden="true"></i> Risorse</a>

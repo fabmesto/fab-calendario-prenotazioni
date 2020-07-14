@@ -20,7 +20,7 @@
                     <?php if ($this->can_delete()) : ?>
                         <td>
                             <a class="btn btn-primary btn-sm" href="<?php echo $this->url_edit($row['id']); ?>">
-                                <i class="fa fa-pencil"></i>
+                                <i class="fas fa-edit"></i>
                             </a>
                             <a class="btn btn-danger btn-sm" href="<?php echo $this->url_delete($row['id']); ?>" onclick="return confirm('Sei sicuro?')">
                                 <span class="fa fa-trash" aria-hidden="true"></span>

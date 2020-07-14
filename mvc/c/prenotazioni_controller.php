@@ -228,6 +228,15 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
         private function _save_new_prenotazione($id_user, $id_risorsa, $data_prenotazione)
         {
             if ($id_user > 0 && $id_risorsa > 0) {
+                // blocca_prenotazioni
+                $blocca_prenotazioni = get_user_meta($id_user, 'blocca_prenotazioni', true);
+                if ($blocca_prenotazioni === '1') {
+                    return array(
+                        'code' => 'error',
+                        'message' => 'Il tuo utente è stato bloccato perchè duplicato'
+                    );
+                }
+
                 // weekend
                 if (service::isWeekend(\fab\functions::date_to_sql($data_prenotazione))) {
                     return array(
@@ -497,6 +506,8 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 'data' => '',
                 'confermata' => '',
                 'annullata' => '',
+                'aggiornata' => '',
+                'inserita' => '',
             );
 
             $newline = PHP_EOL;
@@ -519,9 +530,11 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                     $csv .= $sep . '"' .  $user_info->first_name  . '"';
                     $csv .= $sep . '"' .  $user_info->last_name . '"';
                     $csv .= $sep . '"' . $row['data_inizio'] . '"';
+
                     $csv .= $sep . '"' . ($row['confirmed'] == 0 ? 'NO' : 'SI') . '"';
                     $csv .= $sep . '"' . ($row['deleted'] == 0 ? 'NO' : 'SI') . '"';
-
+                    $csv .= $sep . '"' . $row['date_update'] . '"';
+                    $csv .= $sep . '"' . $row['date_insert'] . '"';
                     $csv .= $newline;
                 }
             }

@@ -42,7 +42,7 @@
                 </div>
                 <div class="card-footer text-center">
                     <button type="submit" class="btn btn-primary btn-lg">
-                        <span class="fa fa-floppy-o" aria-hidden="true"></span> Salva
+                        <i class="fas fa-save"></i> Salva
                     </button>
                 </div>
             </div>

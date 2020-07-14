@@ -12,6 +12,8 @@
                 <th>Data</th>
                 <th>Confermata</th>
                 <th>Annullata</th>
+                <th>Aggiornata</th>
+                <th>Inserita</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +46,9 @@
                     <td><?php echo $row['data_inizio'] ?></td>
                     <td class="text-center <?php echo ($row['confirmed'] == '1' ? 'bg-green' : '') ?>"><?php echo ($row['confirmed'] == '1' ? 'SI' : 'NO') ?></td>
                     <td class="text-center"><?php echo ($row['deleted'] == '1' ? 'SI' : 'NO') ?></td>
+
+                    <td><?php echo $row['date_update'] ?></td>
+                    <td><?php echo $row['date_insert'] ?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>
