@@ -55,6 +55,13 @@ if (!class_exists('fabcalpre\settings')) {
             register_setting('fabcalpre-options', 'fabcalpre-max-date');
             register_setting('fabcalpre-options', 'fabcalpre-min-date');
             register_setting('fabcalpre-options', 'fabcalpre-ora-prenotazione-attiva');
+            register_setting('fabcalpre-options', 'fabcalpre-message-blocco');
+            register_setting('fabcalpre-options', 'fabcalpre-message-occupato');
+            register_setting('fabcalpre-options', 'fabcalpre-message-close');
+            register_setting('fabcalpre-options', 'fabcalpre-message-min-date');
+            register_setting('fabcalpre-options', 'fabcalpre-message-max-date');
+            register_setting('fabcalpre-options', 'fabcalpre-message-attiva');
+            register_setting('fabcalpre-options', 'fabcalpre-message-salvata');
         }
     }
 }

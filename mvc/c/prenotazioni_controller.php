@@ -231,9 +231,11 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 // blocca_prenotazioni
                 $blocca_prenotazioni = get_user_meta($id_user, 'blocca_prenotazioni', true);
                 if ($blocca_prenotazioni === '1') {
+                    $message = get_option('fabcalpre-message-blocco', 'utente bloccato contatta {email}');
+                    $message = str_replace('{email}',  get_bloginfo('admin_email'), $message);
                     return array(
                         'code' => 'error',
-                        'message' => 'Il tuo utente è stato bloccato perchè duplicato'
+                        'message' => $message
                     );
                 }
 
@@ -241,7 +243,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 if (service::isWeekend(\fab\functions::date_to_sql($data_prenotazione))) {
                     return array(
                         'code' => 'error',
-                        'message' => 'In questa data la biblioteca è chiusa'
+                        'message' => get_option('fabcalpre-message-close', 'struttura chiusa in questa data')
                     );
                 }
                 // data nel passato
@@ -254,17 +256,21 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 // data prima dell'apertura
                 $min_date = get_option('fabcalpre-min-date');
                 if ($min_date != '' and \fab\functions::date_to_sql($data_prenotazione) < $min_date) {
+                    $message = get_option('fabcalpre-message-min-date', 'struttura chiusa in questa data');
+                    $message = str_replace('{min-date}', \fab\functions::date_to_ita($min_date), $message);
                     return array(
                         'code' => 'error',
-                        'message' => 'In questa data la biblioteca è chiusa (aperta dal ' . \fab\functions::date_to_ita($min_date) . ')'
+                        'message' => $message
                     );
                 }
                 // data oltre il massimo
                 $max_date = get_option('fabcalpre-max-date');
                 if ($max_date != '' and \fab\functions::date_to_sql($data_prenotazione) > $max_date) {
+                    $message = get_option('fabcalpre-message-max-date', 'struttura chiusa in questa data');
+                    $message = str_replace('{max-date}', \fab\functions::date_to_ita($max_date), $message);
                     return array(
                         'code' => 'error',
-                        'message' => 'In questa data la biblioteca è chiusa (aperta fino al ' . \fab\functions::date_to_ita($max_date) . ')'
+                        'message' => $message
                     );
                 }
 
@@ -272,9 +278,11 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 if (count($prenotazione_attiva) > 0) {
                     $prenotazione_attiva = $this->_check_user_prenotazioni_attive_oggi($prenotazione_attiva);
                     if (count($prenotazione_attiva) > 0) {
+                        $message = get_option('fabcalpre-message-attiva', 'Hai già una prenotazione attiva {data}');
+                        $message = str_replace('{data}', date('d-m-Y', strtotime(\fab\functions::date_to_sql($prenotazione_attiva[0]['data_inizio']))), $message);
                         return array(
                             'code' => 'error',
-                            'message' => 'Hai già una prenotazione attiva: ' . date('d-m-Y', strtotime(\fab\functions::date_to_sql($prenotazione_attiva[0]['data_inizio']))),
+                            'message' => $message
                         );
                     }
                 }
@@ -283,7 +291,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 if (count($prenotazioni) > 0) {
                     return array(
                         'code' => 'error',
-                        'message' => 'Il posto scelto è già occupato in questa data'
+                        'message' => get_option('fabcalpre-message-occupato', 'risorsa occupata')
                     );
                 }
                 // salva
@@ -298,7 +306,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 $this->_send_email_new_prenotazione($id_prenotazione, $allegato);
                 return array(
                     'code' => 'ok',
-                    'message' => "Prenotazione salvata, abbiamo inviato un'e-mail al suo indirizzo di posta",
+                    'message' => get_option('fabcalpre-message-salvata', "Prenotazione salvata, abbiamo inviato un'e-mail al suo indirizzo di posta"),
                     'data' => $id_prenotazione,
                 );
             } else {

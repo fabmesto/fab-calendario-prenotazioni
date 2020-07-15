@@ -26,6 +26,55 @@
                     <input type="text" name="fabcalpre-min-date" value="<?php echo esc_attr(get_option('fabcalpre-min-date', '')); ?>" style="width:100%" />
                 </td>
             </tr>
+        </table>
+        <h3>Messaggi</h3>
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row">Messaggio utente bloccato<br><small>{email}</small></th>
+                <td>
+                    <input type="text" name="fabcalpre-message-blocco" value="<?php echo esc_attr(get_option('fabcalpre-message-blocco', '')); ?>" style="width:100%" />
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Messaggio risorsa occupata</th>
+                <td>
+                    <input type="text" name="fabcalpre-message-occupato" value="<?php echo esc_attr(get_option('fabcalpre-message-occupato', '')); ?>" style="width:100%" />
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Messaggio struttura chiusa</th>
+                <td>
+                    <input type="text" name="fabcalpre-message-close" value="<?php echo esc_attr(get_option('fabcalpre-message-close', '')); ?>" style="width:100%" />
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Messaggio prima della data minima<br><small>{min-date}</small></th>
+                <td>
+                    <input type="text" name="fabcalpre-message-min-date" value="<?php echo esc_attr(get_option('fabcalpre-message-min-date', '')); ?>" style="width:100%" />
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Messaggio oltre data massima<br><small>{max-date}</small></th>
+                <td>
+                    <input type="text" name="fabcalpre-message-max-date" value="<?php echo esc_attr(get_option('fabcalpre-message-max-date', '')); ?>" style="width:100%" />
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Messaggio prenotazione attiva<br><small>{data}</small></th>
+                <td>
+                    <input type="text" name="fabcalpre-message-attiva" value="<?php echo esc_attr(get_option('fabcalpre-message-attiva', '')); ?>" style="width:100%" />
+                </td>
+            </tr>
+            <tr valign="top">
+                <th scope="row">Messaggio prenotazione salvata</th>
+                <td>
+                    <input type="text" name="fabcalpre-message-salvata" value="<?php echo esc_attr(get_option('fabcalpre-message-salvata', '')); ?>" style="width:100%" />
+                </td>
+            </tr>
+        </table>
+        <h3>Email e documenti pdf</h3>
+        <table class="form-table">
+
             <tr valign="top">
                 <th scope="row">Email oggetto (nuova prenotazione)</th>
                 <td>
