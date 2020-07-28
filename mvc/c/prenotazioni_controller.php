@@ -431,7 +431,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 $html = $this->_replace_special(wpautop(get_option('fabcalpre-pdf-html')), $this->data['prenotazione'], '__________________');
 
                 //require_once(FAB_BASE_PLUGIN_DIR_PATH."vendor/TCPDF/examples/tcpdf_include.php");
-                require FAB_BASE_PLUGIN_DIR_PATH . "vendor/autoload.php";
+                require FAB_PLUGIN_DIR_PATH . "vendor/autoload.php";
                 $pdf = new \TCPDF('P', PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
                 // set document information
