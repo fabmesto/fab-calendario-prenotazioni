@@ -21,9 +21,17 @@ if (!class_exists('fabcalpre\shortcode_admin')) {
         {
             parent::load_scripts_styles();
 
-
             wp_register_style('fabcalpre-admin-css', FAB_PLUGIN_DIR_URL . 'assets/admin.css', array(), '1.1');
+        }
+
+        public function load_assets()
+        {
             wp_enqueue_style('fabcalpre-admin-css');
+
+            parent::load_assets();
+            // wp_enqueue_style
+            // wp_enqueue_script
+            return false;
         }
     }
 }

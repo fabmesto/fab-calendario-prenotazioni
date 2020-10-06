@@ -22,14 +22,14 @@
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
-        <?php echo \fab\adminlte::box(
+        <?php echo \fab\adminlte::card(
             $this->require_to_html($this->parent->PLUGIN_DIR_PATH . 'mvc/v/' . $this->name . '/_home_header.php'),
             $this->require_to_html($this->parent->PLUGIN_DIR_PATH . 'mvc/v/' . $this->name . '/_home_body.php'),
             $this->require_to_html($this->parent->PLUGIN_DIR_PATH . 'mvc/v/' . $this->name . '/_home_footer.php'),
             array(
-                'main' => 'box-primary',
-                'header' => 'with-border',
-                'body' => 'no-padding'
+                'main' => 'card-outline card-primary',
+                'header' => 'border-bottom-0',
+                'body' => 'p-0'
             )
         ); ?>
     </div>
