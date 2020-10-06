@@ -28,8 +28,8 @@
             $this->require_to_html($this->parent->PLUGIN_DIR_PATH . 'mvc/v/' . $this->name . '/_home_footer.php'),
             array(
                 'main' => 'card-outline card-primary',
-                'header' => 'border-bottom-0',
-                'body' => 'p-0'
+                'header' => '',
+                'body' => 'p-0 table-responsive'
             )
         ); ?>
     </div>
