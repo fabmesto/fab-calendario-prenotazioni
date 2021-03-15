@@ -55,7 +55,7 @@ if (class_exists('\fab\Fab_Base')) {
             $this->shortcode_admin = new shortcode_admin($this, 'fab-calendario-prenotazioni-admin');
         }
     }
-    $Fab_Calendarioprenotazioni = new Fab_Calendarioprenotazioni();
+    $Fab_Calendarioprenotazioni = Fab_Calendarioprenotazioni::getInstance();
 } else {
     include_once(ABSPATH . 'wp-admin/includes/plugin.php');
     if (!is_plugin_active('fab-base-plugin/fab-base.php')) {
