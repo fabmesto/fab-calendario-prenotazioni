@@ -51,11 +51,11 @@ if (!class_exists('fabcalpre\shortcode')) {
             wp_register_script('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@9', array(), '1.0');
 
             // fancybox3
-            wp_register_style('fancybox3-css', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', array(), '3.5.7');
+            wp_register_style('fancybox3', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css', array(), '3.5.7');
 
             wp_register_script('fancybox3', 'https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', array('jquery'), '3.5.7');
 
-            wp_register_style('fabcalpre-css', FAB_PLUGIN_DIR_URL . 'assets/fabcalpre.css', array(), '1.1');
+            wp_register_style('fabcalpre', FAB_PLUGIN_DIR_URL . 'assets/fabcalpre.css', array(), '1.1');
         }
 
         public function load_assets()
@@ -73,9 +73,9 @@ if (!class_exists('fabcalpre\shortcode')) {
 
 
             wp_enqueue_script('sweetalert2');
-            wp_enqueue_style('fancybox3-css');
+            wp_enqueue_style('fancybox3');
             wp_enqueue_script('fancybox3');
-            wp_enqueue_style('fabcalpre-css');
+            wp_enqueue_style('fabcalpre');
 
             parent::load_assets();
             // wp_enqueue_style
