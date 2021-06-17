@@ -17,7 +17,6 @@ defined('ABSPATH') or die('No script kiddies please!');
 error_reporting(E_ALL | E_WARNING | E_NOTICE);
 ini_set('display_errors', TRUE);
 
-if (!defined(__NAMESPACE__ . '\FAB_DEBUG')) define(__NAMESPACE__ . '\FAB_DEBUG', 'debug');
 if (!defined(__NAMESPACE__ . '\FAB_PLUGIN_DIR_PATH')) define(__NAMESPACE__ . '\FAB_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 if (!defined(__NAMESPACE__ . '\FAB_PLUGIN_DIR_URL')) define(__NAMESPACE__ . '\FAB_PLUGIN_DIR_URL', plugin_dir_url(__FILE__));
 
@@ -28,7 +27,6 @@ if (class_exists('\fab\Fab_Base')) {
         public $shortcode_name = 'fab-tesi-admin';
         public $PLUGIN_DIR_PATH = FAB_PLUGIN_DIR_PATH;
         public $PLUGIN_DIR_URL = FAB_PLUGIN_DIR_URL;
-        public $DEBUG = FAB_DEBUG;
         public $NAMESPACE = __NAMESPACE__;
         public $default_controller = 'prenotazioni';
         public $current_controller = 'prenotazioni';
