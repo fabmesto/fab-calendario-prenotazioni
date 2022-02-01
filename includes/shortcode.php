@@ -39,7 +39,7 @@ if (!class_exists('fabcalpre\shortcode')) {
             wp_register_script('timepicker_it', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/i18n/jquery-ui-timepicker-it.js', array("jquery-ui"), "1.6.3");
 
             /* moment js */
-            wp_register_script('momnetjs', FAB_BASE_PLUGIN_DIR_URL . 'vendor/moment/moment.min.js', array(), "2.22.2");
+            wp_register_script('moment', FAB_BASE_PLUGIN_DIR_URL . 'vendor/moment/moment.min.js', array(), "2.22.2");
 
             /* Font-Awesome */
             wp_register_style('fontawesome5-css', FAB_BASE_PLUGIN_DIR_URL . 'vendor/fontawesome-free/css/all.min.css', array(), "5.1");
@@ -67,7 +67,7 @@ if (!class_exists('fabcalpre\shortcode')) {
             wp_enqueue_style('timepicker_css');
             wp_enqueue_script('timepicker');
             wp_enqueue_script('timepicker_it');
-            wp_enqueue_script('momnetjs');
+            wp_enqueue_script('moment');
             wp_enqueue_style('fontawesome5-css');
             wp_enqueue_style('ionicons-styles');
 
