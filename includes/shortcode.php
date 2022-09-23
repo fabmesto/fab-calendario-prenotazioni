@@ -23,13 +23,8 @@ if (!class_exists('fabcalpre\shortcode')) {
         {
             parent::load_scripts_styles();
 
-            /* jquery */
-            wp_register_style('jquery-ui-style', FAB_BASE_PLUGIN_DIR_URL . 'vendor/jquery-ui/jquery-ui.min.css', array(), "1.12.1");
-
-            wp_register_script('jquery-ui', FAB_BASE_PLUGIN_DIR_URL . 'vendor/jquery-ui/jquery-ui.min.js', array("jquery"), "1.12.1");
-
-            wp_register_script('jquery-ui-it', FAB_BASE_PLUGIN_DIR_URL . 'vendor/jquery-ui/i18n/datepicker-it.js', array("jquery"), "1.1");
-
+            $this->register_jquery();
+            
             /* timepicker */
             wp_register_style('timepicker_css', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css', array(), "1.6.3");
 
