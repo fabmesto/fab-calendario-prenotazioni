@@ -24,7 +24,7 @@ if (class_exists('\fab\Fab_Base')) {
 
     class Fab_Calendarioprenotazioni extends \fab\Fab_Base
     {
-        public $shortcode_name = 'fab-tesi-admin';
+        public $shortcode_name = 'fab-calendario-prenotazioni';
         public $PLUGIN_DIR_PATH = FAB_PLUGIN_DIR_PATH;
         public $PLUGIN_DIR_URL = FAB_PLUGIN_DIR_URL;
         public $NAMESPACE = __NAMESPACE__;
