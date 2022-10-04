@@ -13,7 +13,7 @@ if (!class_exists('fabcalpre\service')) {
 
         public static function add_log($data)
         {
-            return Fab_Calendarioprenotazioni::getInstance()->call_method_controller('logs', 'add', $data);
+            return Fab_Calendarioprenotazioni::getInstance()->call_method_controller('logs', 'add_log', $data);
         }
     }
 }
