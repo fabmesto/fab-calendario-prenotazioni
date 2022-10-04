@@ -7,7 +7,7 @@ require_once FAB_BASE_PLUGIN_DIR_PATH . '/fab_base/fab_install_db.php';
 if (!class_exists('fabcalpre\install_db')) {
   class install_db extends \fab\fab_install_db
   {
-    public $db_version = '0.8';
+    public $db_version = '0.9';
     public $db_version_key = 'fabcalpre-db-version';
     public $prefix_plugin_table = 'fabcalpre_';
 
@@ -45,6 +45,20 @@ if (!class_exists('fabcalpre\install_db')) {
           PRIMARY KEY  (id)
           ) " . $charset_collate . ";",
 
+          "CREATE TABLE IF NOT EXISTS " . $wpdb->prefix . $this->prefix_plugin_table . "log(
+          `id` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+          `category` tinytext NOT NULL default '',
+          `subject` text NOT NULL default '',
+          `message` text NOT NULL default '',
+          `json_data` text NOT NULL default '',
+          `ip` varchar(20) NOT NULL default '',
+          `date_update` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+          `date_insert` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+          `id_user_update` mediumint(9) unsigned NOT NULL DEFAULT '0',
+          `id_user_insert` mediumint(9) unsigned NOT NULL DEFAULT '0',
+          `deleted` tinyint(1) NOT NULL DEFAULT '0',
+          PRIMARY KEY  (id)
+          ) " . $charset_collate . ";",
       );
 
       $this->query_alter_db = array(

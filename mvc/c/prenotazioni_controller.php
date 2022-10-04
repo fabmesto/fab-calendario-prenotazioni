@@ -372,7 +372,16 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                 $subject = $this->_replace_special(get_option('fabcalpre-email-subject-' . $tipo), $this->data['prenotazione']);
                 $message = $this->_replace_special(wpautop(get_option('fabcalpre-email-message-' . $tipo)), $this->data['prenotazione']);
 
-                return wp_mail($user_info->user_email, $subject, $message, $headers, $allegato);
+                $resp_email = wp_mail($user_info->user_email, $subject, $message, $headers, $allegato);
+
+                $log = [
+                    'category' => 'send_email_prenotazione save',
+                    'subject' => $subject,
+                    'message' => $message,
+                    'json_data' => "Inviato a " . $user_info->user_email . ":" . json_encode($resp_email)
+                ];
+                service::add_log($log);
+                return $resp_email;
             }
             return false;
         }

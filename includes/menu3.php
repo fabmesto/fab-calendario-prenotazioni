@@ -26,6 +26,10 @@
               <a href="<?php echo $this->url('risorse') ?>" class="nav-link <?php echo $this->link_is_active('risorse') ?>">
                 <i class="fa fa-th-list" aria-hidden="true"></i> Risorse</a>
             </li>
+            <li class="nav-item">
+              <a href="<?php echo $this->url('logs') ?>" class="nav-link <?php echo $this->link_is_active('logs') ?>">
+                <i class="fa fa-th-list" aria-hidden="true"></i> Logs</a>
+            </li>
           <?php endif; ?>
         </ul>
       </li>
