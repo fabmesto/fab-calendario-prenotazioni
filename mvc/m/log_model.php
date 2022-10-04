@@ -5,7 +5,7 @@ namespace fabcalpre;
 class log_model extends \fab\fab_model
 {
     public $name = 'log';
-    public $prefix_plugin_table = 'h2o_';
+    public $prefix_plugin_table = 'fabcalpre_';
     public $sort = "id DESC";
     public $paging = 20;
     public $filter_cols = array(
