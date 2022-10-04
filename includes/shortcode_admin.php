@@ -33,5 +33,10 @@ if (!class_exists('fabcalpre\shortcode_admin')) {
             // wp_enqueue_script
             return false;
         }
+        
+        public function macaddress()
+        {
+            return true;
+        }
     }
 }

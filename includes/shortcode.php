@@ -10,21 +10,12 @@ if (!class_exists('fabcalpre\shortcode')) {
         public $onlyregister_user = false;
         public $shortcode_attribs = array('c' => false, 'a' => 'home');
 
-        public function __construct($parent, $shortcode_name)
-        {
-            $this->shortcode_name = $shortcode_name;
-            $this->parent = $parent;
-            add_action('init', array($this, 'register_shortcode'));
-            add_action('wp_enqueue_scripts', array($this, 'load_scripts_styles'));
-            add_filter('show_admin_bar', array(&$this, 'show_admin_bar'));
-        }
-
         public function load_scripts_styles()
         {
             parent::load_scripts_styles();
 
             $this->register_jquery();
-            
+
             /* timepicker */
             wp_register_style('timepicker_css', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css', array(), "1.6.3");
 
@@ -86,7 +77,7 @@ if (!class_exists('fabcalpre\shortcode')) {
 
             $this->before_render();
             ob_start();
-            //$this->update_page_installed();
+            $this->update_page_installed();
             if ($this->shortcode_attribs['c'] == false) {
                 //$this->render_by();
             } else {

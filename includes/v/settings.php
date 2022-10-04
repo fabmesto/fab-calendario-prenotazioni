@@ -104,7 +104,7 @@
                 </td>
             </tr>
             <tr valign="top">
-                <th scope="row">Email messaggio (prenotazione eliminata)</th>
+                <th scope="row">Contenuto Pdf </th>
                 <td><?php wp_editor(get_option('fabcalpre-pdf-html', ''), 'fabcalpre-pdf-html'); ?></td>
             </tr>
             <tr valign="top">

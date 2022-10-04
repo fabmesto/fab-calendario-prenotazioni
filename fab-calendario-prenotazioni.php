@@ -20,6 +20,9 @@ ini_set('display_errors', TRUE);
 if (!defined(__NAMESPACE__ . '\FAB_PLUGIN_DIR_PATH')) define(__NAMESPACE__ . '\FAB_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 if (!defined(__NAMESPACE__ . '\FAB_PLUGIN_DIR_URL')) define(__NAMESPACE__ . '\FAB_PLUGIN_DIR_URL', plugin_dir_url(__FILE__));
 
+require_once FAB_PLUGIN_DIR_PATH . 'includes/install_db.php';
+require FAB_PLUGIN_DIR_PATH . 'includes/service.php';
+
 if (class_exists('\fab\Fab_Base')) {
 
     class Fab_Calendarioprenotazioni extends \fab\Fab_Base
@@ -35,11 +38,8 @@ if (class_exists('\fab\Fab_Base')) {
 
         public function plugins_loaded()
         {
-            require_once FAB_PLUGIN_DIR_PATH . 'includes/fab_install_db.php';
-            $install = new fab_install_db();
+            $install = new install_db();
             $install->install_db();
-
-            require FAB_PLUGIN_DIR_PATH . 'includes/service.php';
 
             parent::plugins_loaded();
 
