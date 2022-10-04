@@ -21,11 +21,15 @@ if (!class_exists('fabcalpre\shortcode_admin')) {
         {
             parent::load_scripts_styles();
 
+            // sweetalert2
+            wp_register_script('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@9', array(), '1.0');
+
             wp_register_style('fabcalpre-admin-css', FAB_PLUGIN_DIR_URL . 'assets/admin.css', array(), '1.1');
         }
 
         public function load_assets()
         {
+            wp_enqueue_script('sweetalert2');
             wp_enqueue_style('fabcalpre-admin-css');
 
             parent::load_assets();
@@ -33,7 +37,7 @@ if (!class_exists('fabcalpre\shortcode_admin')) {
             // wp_enqueue_script
             return false;
         }
-        
+
         public function macaddress()
         {
             return true;

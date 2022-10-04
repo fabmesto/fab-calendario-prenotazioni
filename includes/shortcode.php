@@ -16,22 +16,10 @@ if (!class_exists('fabcalpre\shortcode')) {
 
             $this->register_jquery();
 
-            /* timepicker */
-            wp_register_style('timepicker_css', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.css', array(), "1.6.3");
-
-            wp_register_script('timepicker', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.min.js', array("jquery-ui"), "1.6.3");
-
-
-            wp_register_script('timepicker_it', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/i18n/jquery-ui-timepicker-it.js', array("jquery-ui"), "1.6.3");
-
-            /* moment js */
-            wp_register_script('moment', FAB_BASE_PLUGIN_DIR_URL . 'vendor/moment/moment.min.js', array(), "2.22.2");
-
-            /* Font-Awesome */
-            wp_register_style('fontawesome5-css', FAB_BASE_PLUGIN_DIR_URL . 'vendor/fontawesome-free/css/all.min.css', array(), "5.1");
-
-
-            wp_register_style('ionicons-styles', FAB_BASE_PLUGIN_DIR_URL . 'vendor/Ionicons/css/ionicons.min.css', array(), "1.0");
+            $this->register_timepicker();
+            $this->register_moment();
+            $this->register_fontawesome5();
+            $this->register_ionicons();
 
             // sweetalert2
             wp_register_script('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@9', array(), '1.0');
