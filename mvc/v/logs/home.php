@@ -1,4 +1,4 @@
-<?php echo $this->require_to_html(FAB_BASE_PLUGIN_DIR_PATH . 'fab_base/base_content_header3.php') ?>
+<?php echo $this->require_to_html(FAB_BASE_PLUGIN_DIR_PATH . 'fab_base/adminlte3/v/content_header.php') ?>
 <div id="vue-datatable" basereadurl="<?php echo $this->url_rest_read ?>" basesaveurl="<?php echo $this->url_rest_save ?>" basedeleteurl="<?php echo $this->url_rest_save ?>" modelname="<?php echo $this->default_model_name ?>">
     <v-app>
         <v-main>
@@ -31,4 +31,4 @@
 
 </div>
 
-<?php echo $this->require_to_html(FAB_BASE_PLUGIN_DIR_PATH . 'fab_base/base_content_footer3.php') ?>
+<?php echo $this->require_to_html(FAB_BASE_PLUGIN_DIR_PATH . 'fab_base/adminlte3/v/content_footer.php') ?>

@@ -2,10 +2,10 @@
 
 namespace fabcalpre;
 
-require_once FAB_BASE_PLUGIN_DIR_PATH . 'fab_base/fab_shortcode_adminlte3.php';
+require_once FAB_BASE_PLUGIN_DIR_PATH . 'fab_base/adminlte3/shortcode.php';
 
 if (!class_exists('fabcalpre\shortcode_admin')) {
-    class shortcode_admin extends \fab\fab_shortcode_adminlte3
+    class shortcode_admin extends \fab\adminlte3\shortcode
     {
         public $macaddress_name = "fabcalpre_macaddress";
         public $hide_admin_bar = true;
