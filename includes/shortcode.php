@@ -19,7 +19,6 @@ if (!class_exists('fabcalpre\shortcode')) {
             $this->register_timepicker();
             $this->register_moment();
             $this->register_fontawesome5();
-            $this->register_ionicons();
 
             // sweetalert2
             wp_register_script('sweetalert2', 'https://cdn.jsdelivr.net/npm/sweetalert2@9', array(), '1.0');
@@ -43,7 +42,6 @@ if (!class_exists('fabcalpre\shortcode')) {
             wp_enqueue_script('timepicker_it');
             wp_enqueue_script('moment');
             wp_enqueue_style('fontawesome5-css');
-            wp_enqueue_style('ionicons-styles');
 
 
             wp_enqueue_script('sweetalert2');
