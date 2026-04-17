@@ -64,7 +64,7 @@ if (!class_exists('fabcalpre\users_controller')) {
         public function default_forms_fields()
         {
             $html = '';
-            $html .= \fab\functions::html_input_search('Email', 'q', $this->params['q']);
+            $html .= \fab\bootstrap::html_input_search('Email', 'q', $this->params['q']);
             return $html;
         }
 

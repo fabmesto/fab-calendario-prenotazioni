@@ -422,10 +422,10 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
         public function default_forms_fields()
         {
             $html = '';
-            $html .= \fab\functions::html_select_search('Risorsa', 'id_risorsa', \fab\functions::options_array($this->params['id_risorsa'], $this->data['risorsa'], true));
-            $html .= \fab\functions::html_input_search('Data', 'data_prenotazione', $this->params['data_prenotazione'], 'it-date-datepicker');
-            $html .= \fab\functions::html_select_search('Cestino', 'deleted', \fab\functions::options_deleted($this->params['deleted']));
-            $html .= \fab\functions::html_input_search('Per pag.', 'paging', $this->params['paging'], '', 'size="3"');
+            $html .= \fab\bootstrap::html_select_search('Risorsa', 'id_risorsa', \fab\functions::options_array($this->params['id_risorsa'], $this->data['risorsa'], true));
+            $html .= \fab\bootstrap::html_input_search('Data', 'data_prenotazione', $this->params['data_prenotazione'], 'it-date-datepicker');
+            $html .= \fab\bootstrap::html_select_search('Cestino', 'deleted', \fab\functions::options_deleted($this->params['deleted']));
+            $html .= \fab\bootstrap::html_input_search('Per pag.', 'paging', $this->params['paging'], '', 'size="3"');
             return $html;
         }
 

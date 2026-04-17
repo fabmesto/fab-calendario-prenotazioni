@@ -34,9 +34,9 @@
                 </div>
 
                 <div class="card-body">
-                    <?php echo \fab\functions::html_input_edit("Nome", $this->default_model_name . "[nome]", $this->data['row']['nome']) ?>
-                    <?php echo \fab\functions::html_input_edit("Ordinamento", $this->default_model_name . "[ordinamento]", $this->data['row']['ordinamento']) ?>
-                    <?php echo \fab\functions::html_textarea_edit("Note", $this->default_model_name . "[note]", $this->data['row']['note']) ?>
+                    <?php echo \fab\bootstrap::html_input_edit("Nome", $this->default_model_name . "[nome]", $this->data['row']['nome']) ?>
+                    <?php echo \fab\bootstrap::html_input_edit("Ordinamento", $this->default_model_name . "[ordinamento]", $this->data['row']['ordinamento']) ?>
+                    <?php echo \fab\bootstrap::html_textarea_edit("Note", $this->default_model_name . "[note]", $this->data['row']['note']) ?>
 
                     <div class="ajax_message" role="alert"></div>
                 </div>

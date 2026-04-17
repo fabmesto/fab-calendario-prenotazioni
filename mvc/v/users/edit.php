@@ -38,61 +38,61 @@
                     <h3><?php echo $this->data['row']->user_email ?></h3>
                     <div class="row">
                         <div class="col-6">
-                            <?php echo \fab\functions::html_input_edit("Nome", "info[first_name]", $this->data['row']->first_name) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Nome", "info[first_name]", $this->data['row']->first_name) ?>
                         </div>
                         <div class="col-6">
-                            <?php echo \fab\functions::html_input_edit("Cognome", "info[last_name]", $this->data['row']->last_name) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Cognome", "info[last_name]", $this->data['row']->last_name) ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <?php echo \fab\functions::html_select_edit("Sesso", "info[gender][]", \fab\functions::options_array($this->data['row']->gender[0], array('Maschio' => 'Maschio', 'Femmina' => 'Femmina'))) ?>
+                            <?php echo \fab\bootstrap::html_select_edit("Sesso", "info[gender][]", \fab\functions::options_array($this->data['row']->gender[0], array('Maschio' => 'Maschio', 'Femmina' => 'Femmina'))) ?>
                         </div>
                         <div class="col-6">
-                            <?php echo \fab\functions::html_input_edit("Nazione", "info[country]", $this->data['row']->country) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Nazione", "info[country]", $this->data['row']->country) ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <?php echo \fab\functions::html_input_edit("Data di nascita", "info[birth_date]", \fab\functions::date_to_ita($this->data['row']->birth_date)) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Data di nascita", "info[birth_date]", \fab\functions::date_to_ita($this->data['row']->birth_date)) ?>
                         </div>
                         <div class="col-6">
-                            <?php echo \fab\functions::html_input_edit("Lugoo di nascita", "info[luogo_nascita]", $this->data['row']->luogo_nascita) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Lugoo di nascita", "info[luogo_nascita]", $this->data['row']->luogo_nascita) ?>
                         </div>
                     </div>
-                    <?php echo \fab\functions::html_input_edit("Professione", "info[professione]", $this->data['row']->professione) ?>
+                    <?php echo \fab\bootstrap::html_input_edit("Professione", "info[professione]", $this->data['row']->professione) ?>
                     <div class="row">
                         <div class="col-6">
-                            <?php echo \fab\functions::html_input_edit("Telefono", "info[phone_number]", $this->data['row']->phone_number) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Telefono", "info[phone_number]", $this->data['row']->phone_number) ?>
                         </div>
                         <div class="col-6">
-                            <?php echo \fab\functions::html_input_edit("Cell.", "info[mobile_number]", $this->data['row']->mobile_number) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Cell.", "info[mobile_number]", $this->data['row']->mobile_number) ?>
                         </div>
                     </div>
-                    <?php echo \fab\functions::html_input_edit("Indirizzo", "info[indirizzo]", $this->data['row']->indirizzo) ?>
+                    <?php echo \fab\bootstrap::html_input_edit("Indirizzo", "info[indirizzo]", $this->data['row']->indirizzo) ?>
                     <div class="row">
                         <div class="col-4">
-                            <?php echo \fab\functions::html_input_edit("Comune", "info[comune]", $this->data['row']->comune) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Comune", "info[comune]", $this->data['row']->comune) ?>
                         </div>
                         <div class="col-4">
-                            <?php echo \fab\functions::html_input_edit("Provincia", "info[provincia]", $this->data['row']->provincia) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Provincia", "info[provincia]", $this->data['row']->provincia) ?>
                         </div>
                         <div class="col-4">
-                            <?php echo \fab\functions::html_input_edit("CAP", "info[cap]", $this->data['row']->cap) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("CAP", "info[cap]", $this->data['row']->cap) ?>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4">
-                            <?php echo \fab\functions::html_select_edit("Tipo documento", "info[documento_tipo][]", \fab\functions::options_array($this->data['row']->documento_tipo[0], array('Carta d’identità' => 'Carta d’identità', 'Patente' => 'Patente', 'Passaporto' => 'Passaporto', 'Permesso soggiorno' => 'Permesso soggiorno'))) ?>
+                            <?php echo \fab\bootstrap::html_select_edit("Tipo documento", "info[documento_tipo][]", \fab\functions::options_array($this->data['row']->documento_tipo[0], array('Carta d’identità' => 'Carta d’identità', 'Patente' => 'Patente', 'Passaporto' => 'Passaporto', 'Permesso soggiorno' => 'Permesso soggiorno'))) ?>
                         </div>
                         <div class="col-4">
-                            <?php echo \fab\functions::html_input_edit("Numero Documento", "info[documento_numero]", $this->data['row']->documento_numero) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Numero Documento", "info[documento_numero]", $this->data['row']->documento_numero) ?>
                         </div>
                         <div class="col-4">
-                            <?php echo \fab\functions::html_input_edit("Data di rilascio documento", "info[documento_data]", \fab\functions::date_to_ita($this->data['row']->documento_data)) ?>
+                            <?php echo \fab\bootstrap::html_input_edit("Data di rilascio documento", "info[documento_data]", \fab\functions::date_to_ita($this->data['row']->documento_data)) ?>
                         </div>
                     </div>
-                    <?php echo \fab\functions::html_select_edit("Blocca l'utente, non potrà più fare prenotazioni", "info[blocca_prenotazioni]", \fab\functions::options_array($this->data['row']->blocca_prenotazioni, array('0' => 'Sbloccato, può prenotare', '1' => 'Blocca prenotazioni'))) ?>
+                    <?php echo \fab\bootstrap::html_select_edit("Blocca l'utente, non potrà più fare prenotazioni", "info[blocca_prenotazioni]", \fab\functions::options_array($this->data['row']->blocca_prenotazioni, array('0' => 'Sbloccato, può prenotare', '1' => 'Blocca prenotazioni'))) ?>
 
                     <div class="ajax_message" role="alert"></div>
                 </div>
