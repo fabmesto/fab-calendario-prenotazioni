@@ -44,11 +44,18 @@ if (!class_exists('fabcalpre\logs_controller')) {
 
         public function ajax_csv()
         {
+            if (current_user_can('show_all_prenotazioni') != 1) {
+                status_header(403);
+                echo 'Non autorizzato';
+                exit();
+            }
+
             if (isset($_GET['csv_action'])) {
-                if (method_exists($this, $_GET['csv_action'])) {
-                    $this->{$_GET['csv_action']}();
+                $csv_action = sanitize_key($_GET['csv_action']);
+                if (method_exists($this, $csv_action)) {
+                    $this->{$csv_action}();
                 } else {
-                    echo "Non esiste: " . $_GET['csv_action'];
+                    echo "Non esiste: " . esc_html($csv_action);
                     exit();
                 }
             } else {

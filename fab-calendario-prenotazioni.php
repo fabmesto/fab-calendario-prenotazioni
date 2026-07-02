@@ -35,9 +35,13 @@ if (class_exists('\fab\Fab_Base')) {
         public $current_controller = 'prenotazioni';
         public $upload_dir = 'files/fabcalpre';
         public $rewrite_login = false;
+        public $rest_permission_mode = 'enforce';
+        public $public_rest_actions = [];
 
         public function plugins_loaded()
         {
+            add_filter($this->NAMESPACE . '_rest_permission', [$this, 'rest_permission'], 10, 6);
+
             $install = new install_db();
             $install->install_db();
 
@@ -51,6 +55,49 @@ if (class_exists('\fab\Fab_Base')) {
 
             require_once FAB_PLUGIN_DIR_PATH . 'includes/shortcode_admin.php';
             $this->shortcode_admin = new shortcode_admin($this, 'fab-calendario-prenotazioni-admin');
+        }
+
+        public function rest_permission($permission, $parent, $route_action, $controller, $action, $request)
+        {
+            if ($parent !== $this) {
+                return $permission;
+            }
+
+            if ($this->can_use_public_rest_action($route_action, $controller, $action)) {
+                return true;
+            }
+
+            if (!is_user_logged_in()) {
+                return null;
+            }
+
+            if ($this->can_use_rest_action($route_action, $controller, $action)) {
+                return true;
+            }
+
+            return new \WP_Error(
+                'fabcalpre_rest_forbidden',
+                'Non autorizzato',
+                ['status' => 403]
+            );
+        }
+
+        private function can_use_public_rest_action($route_action, $controller, $action)
+        {
+            return $route_action === 'read' && $controller === 'prenotazioni';
+        }
+
+        private function can_use_rest_action($route_action, $controller, $action)
+        {
+            if (current_user_can('show_all_prenotazioni')) {
+                return true;
+            }
+
+            if ($controller === 'prenotazioni') {
+                return in_array($route_action, ['read', 'save'], true);
+            }
+
+            return false;
         }
     }
     $BASE = Fab_Calendarioprenotazioni::getInstance();
