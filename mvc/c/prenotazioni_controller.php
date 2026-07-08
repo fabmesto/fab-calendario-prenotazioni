@@ -39,7 +39,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
             $this->params['data_prenotazione'] = date('d/m/Y');
             $this->data['prenotazioni'] = array();
             if (isset($_GET['data_prenotazione'])) {
-                $this->params['data_prenotazione'] = $_GET['data_prenotazione'];
+                $this->params['data_prenotazione'] = sanitize_text_field(wp_unslash($_GET['data_prenotazione']));
             }
 
             $this->data['risorsa'] = $this->risorsa->get_results("deleted='0'", '*', 'ordinamento, nome');
@@ -88,7 +88,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
             $filter['params']['data_prenotazione'] = '';
 
             if (isset($_GET['data_prenotazione'])) {
-                $filter['params']['data_prenotazione'] = $_GET['data_prenotazione'];
+                $filter['params']['data_prenotazione'] = sanitize_text_field(wp_unslash($_GET['data_prenotazione']));
             }
             if ($filter['params']['data_prenotazione'] != '') {
                 if ($filter["where"] == '') $filter["where"] = "data_inizio<='" .  \fab\functions::date_to_sql($filter['params']['data_prenotazione']) . "' AND data_fine>='" . \fab\functions::date_to_sql($filter['params']['data_prenotazione']) . "'";
@@ -103,7 +103,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
             $this->params['data_prenotazione'] = date('d/m/Y');
             $this->data['prenotazioni'] = array();
             if (isset($_GET['data_prenotazione'])) {
-                $this->params['data_prenotazione'] = $_GET['data_prenotazione'];
+                $this->params['data_prenotazione'] = sanitize_text_field(wp_unslash($_GET['data_prenotazione']));
             }
 
             $this->data['prenotazioni'] = $this->get_prenotazioni_data($this->params['data_prenotazione']);
@@ -130,7 +130,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
 
             $action = '';
             if (isset($_POST['action'])) {
-                $action = $_POST['action'];
+                $action = sanitize_key($_POST['action']);
             }
 
             switch ($action) {
@@ -147,7 +147,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                         $id_risorsa = intval($_POST['id_risorsa']);
                     }
                     if (isset($_POST['data_prenotazione'])) {
-                        $data_prenotazione = $_POST['data_prenotazione'];
+                        $data_prenotazione = sanitize_text_field(wp_unslash($_POST['data_prenotazione']));
                     }
                     return $this->_save_del_prenotazione($current_user->ID, $id_risorsa, $data_prenotazione);
                     break;
@@ -158,7 +158,7 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
                         $id_risorsa = intval($_POST['id_risorsa']);
                     }
                     if (isset($_POST['data_prenotazione'])) {
-                        $data_prenotazione = $_POST['data_prenotazione'];
+                        $data_prenotazione = sanitize_text_field(wp_unslash($_POST['data_prenotazione']));
                     }
                     return $this->_save_new_prenotazione($current_user->ID, $id_risorsa, $data_prenotazione);
 
@@ -495,13 +495,14 @@ if (!class_exists('fabcalpre\prenotazioni_controller')) {
         public function ajax_csv()
         {
             if (isset($_GET['csv_action'])) {
-                if (method_exists($this, $_GET['csv_action'])) {
-                    $this->{$_GET['csv_action']}();
+                $csv_action = sanitize_key(wp_unslash($_GET['csv_action']));
+                if (method_exists($this, $csv_action)) {
+                    $this->{$csv_action}();
 
                     parent::ajax_csv();
                     exit();
                 } else {
-                    echo "Non esiste: " . $_GET['csv_action'];
+                    echo "Non esiste: " . esc_html($csv_action);
                     exit();
                 }
             } else {

@@ -14,9 +14,6 @@ namespace fabcalpre;
 
 defined('ABSPATH') or die('No script kiddies please!');
 
-error_reporting(E_ALL | E_WARNING | E_NOTICE);
-ini_set('display_errors', TRUE);
-
 if (!defined(__NAMESPACE__ . '\FAB_PLUGIN_DIR_PATH')) define(__NAMESPACE__ . '\FAB_PLUGIN_DIR_PATH', plugin_dir_path(__FILE__));
 if (!defined(__NAMESPACE__ . '\FAB_PLUGIN_DIR_URL')) define(__NAMESPACE__ . '\FAB_PLUGIN_DIR_URL', plugin_dir_url(__FILE__));
 
@@ -35,6 +32,8 @@ if (class_exists('\fab\Fab_Base')) {
         public $current_controller = 'prenotazioni';
         public $upload_dir = 'files/fabcalpre';
         public $rewrite_login = false;
+        public $public_ajax_mode = 'enforce';
+        public $public_ajax_actions = [];
         public $rest_permission_mode = 'enforce';
         public $public_rest_actions = [];
 
