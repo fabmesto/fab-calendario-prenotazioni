@@ -36,6 +36,8 @@ if (class_exists('\fab\Fab_Base')) {
         public $public_ajax_actions = [];
         public $rest_permission_mode = 'enforce';
         public $public_rest_actions = [];
+        public $shortcode;
+        public $shortcode_admin;
 
         public function plugins_loaded()
         {
